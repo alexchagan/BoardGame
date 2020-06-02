@@ -8,11 +8,6 @@
 #include "ParamedicCommander.hpp"
 using namespace std;
 
-void ParamedicCommander::basic_action(std::vector<std::vector<Soldier*>> board,int x, int y)
-{
-    Soldier* s = find_target(board,x,y);
-    s->_health = s->_ohp;
-}
 
 Soldier* ParamedicCommander::find_target(std::vector<std::vector<Soldier*>> board,int x, int y)
 {
@@ -21,14 +16,14 @@ Soldier* ParamedicCommander::find_target(std::vector<std::vector<Soldier*>> boar
 
 void ParamedicCommander::main_action(std::vector<std::vector<Soldier*>> board,int x, int y)
 {
-    basic_action(board,x,y);
+    basic_heal(board,x,y);
     
     for(int i = 0; i<board.size(); i++)
     {
       for(int j=0; j<board[i].size(); j++)
       {
           if(board[i][j]->_team == _team && board[i][j]->_type == "Paramedic")
-           board[i][j]->basic_action(board,x,y);
+           board[i][j]->basic_heal(board,x,y);
       }
     }
 }

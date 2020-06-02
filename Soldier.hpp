@@ -97,13 +97,20 @@ class Soldier
           return nullptr;
     };
     
-    virtual void basic_action(std::vector<std::vector<Soldier*>> board,int x, int y)
+    void basic_action(std::vector<std::vector<Soldier*>> board,int x, int y)
     {
     Soldier* s = find_target(board,x,y);
     s->_health = _health - _impact; //general formula for offensive soldiers
     if(s->_health < 1)
-     s = nullptr;
+    s = nullptr;
     };
+    
+    void basic_heal(std::vector<std::vector<Soldier*>> board,int x, int y)
+{
+    Soldier* s = find_target(board,x,y);
+    if(s != nullptr)
+     s->_health = s->_ohp;
+}
     
     virtual void main_action(std::vector<std::vector<Soldier*>> board,int x, int y)
     {
