@@ -102,7 +102,10 @@ class Soldier
     Soldier* s = find_target(board,x,y);
     s->_health = _health - _impact; //general formula for offensive soldiers
     if(s->_health < 1)
+    {
+    delete s;
     s = nullptr;
+    }
     };
     
     void basic_heal(std::vector<std::vector<Soldier*>> board,int x, int y)
