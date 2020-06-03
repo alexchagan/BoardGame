@@ -120,7 +120,7 @@ class Soldier
     
     virtual Soldier* find_target(std::vector<std::vector<Soldier*>> board,int x, int y) =0;
     
-    
+    virtual ~Soldier(){};
 };
 
 
