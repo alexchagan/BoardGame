@@ -100,7 +100,7 @@ class Soldier
     void basic_action(std::vector<std::vector<Soldier*>> board,int x, int y)
     {
     Soldier* s = find_target(board,x,y);
-    s->_health = _health - _impact; //general formula for offensive soldiers
+    s->_health = s->_health - _impact; //general formula for offensive soldiers
     if(s->_health < 1)
     {
     delete s;
