@@ -85,15 +85,16 @@ using namespace WarGame;
      board[x][y]->main_action(board,x,y);
  }
  
- bool Board::has_soldiers(uint player_number) const
+ bool Board::has_soldiers(uint player_number)
  {
-   for(int i=0; i<board.size(); i++)
+  bool ans = false;
+   for(int i=0; i<board.size() && !ans ; i++)
    {
     for(int j=0; j<board[i].size(); j++)
     {
      if(board[i][j]!=nullptr && board[i][j]->_team == player_number)
-      return true;
+      ans = true;
     }
    }
-  return false;
+  return ans;
  }
