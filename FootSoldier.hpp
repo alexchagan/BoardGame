@@ -1,6 +1,3 @@
-#ifndef WARGAME_A_FOOTSOLDIER_HPP
-#define WARGAME_A_FOOTSOLDIER_HPP
-
 #include <iostream>
 #include <string>
 #include <stdexcept>
@@ -17,4 +14,3 @@ class FootSoldier : public Soldier
   Soldier* find_target (std::vector<std::vector<Soldier*>>& board,int x, int y);
 };
 
-#endif
