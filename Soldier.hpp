@@ -24,7 +24,7 @@ class Soldier
     {
     double min_distance = 0;
     Soldier* s = nullptr;
-    
+    int target_x,target_y;
     
     for(int i = 0; i<board.size(); i++)
     {
@@ -40,13 +40,18 @@ class Soldier
             {
              min_distance = distance;
              s = board[i][j];
+             target_x = i;
+             target_y = j;
             }
              
         }
       }
     }
-    //  if(s==nullptr)
-    //   cout<<"didn't find target"<<endl;
+     if(s!=nullptr)
+     {
+      s->_x = target_x;
+      s->_y = target_y;
+     }
      return s;
     };
     
@@ -91,7 +96,9 @@ class Soldier
                if(board[i][j] != nullptr && board[i][j]->_team == _team && board[i][j]->_health != board[i][j]->_ohp)
                {
                    if(abs(x-i)==1 && abs(y-j)==1)
+                   {
                     return board[i][j];
+                   }
                }
            }
            
@@ -106,7 +113,7 @@ class Soldier
     if(s->_health < 1)
      {
       delete s;
-      //board[s->_x][s->_y]=nullptr;
+      board[s->_x][s->_y]=nullptr;
       s = nullptr;
      }
     };
