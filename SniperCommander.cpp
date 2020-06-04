@@ -25,7 +25,7 @@ void SniperCommander::main_action(std::vector<std::vector<Soldier*>>& board,int 
       {
           if(board[i][j] != nullptr)
            if(board[i][j]->_team == _team && board[i][j]->_type == "Sniper")
-            board[i][j]->basic_action(board,x,y);
+            board[i][j]->basic_attack(board,x,y);
       }
     }
 }
