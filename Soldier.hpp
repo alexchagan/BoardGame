@@ -1,3 +1,6 @@
+#ifndef WARGAME_SOLDIER_HPP
+#define WARGAME_SOLDIER_HPP
+
 #include <iostream>
 #include <string>
 #include <stdexcept>
@@ -144,3 +147,4 @@ class Soldier
     virtual ~Soldier(){};
 };
 
+#endif
