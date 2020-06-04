@@ -104,6 +104,8 @@ class Soldier
                {
                    if(abs(x-i)==1 && abs(y-j)==1)
                    {
+                    board[i][j]->_x = i;
+                    board[i][j]->_y = j;
                     return board[i][j];
                    }
                }
