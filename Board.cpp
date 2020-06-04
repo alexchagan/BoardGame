@@ -7,8 +7,6 @@ using namespace WarGame;
 
  Soldier*& Board::operator[](std::pair<int,int> location)
  {
-    //board[location.first][location.second]->_x = location.first;
-   // board[location.first][location.second]->_y = location.second;
     return board[location.first][location.second];
  }
  
@@ -19,6 +17,9 @@ using namespace WarGame;
  
  void Board::move(uint player_number, std::pair<int,int> source, MoveDIR direction)
  {
+     if(source.first > board.size()-1 || source.second > board.size()-1 || source.first < 0 || source.second < 0)
+      throw std::invalid_argument("out of bounds");
+      
      Soldier* s = board[source.first][source.second];
      
      if(s==nullptr)
@@ -33,6 +34,8 @@ using namespace WarGame;
      {
        case Up:
        {
+        if(source.first+1 > board.size()-1)
+         throw std::invalid_argument("out of bounds movement");
         if(board[source.first+1][source.second] != nullptr)
          throw std::invalid_argument("there's already a soldier in the wanted position");
          
@@ -45,6 +48,8 @@ using namespace WarGame;
        
         case Down:
        {
+        if(source.first-1 < 0)
+         throw std::invalid_argument("out of bounds movement");
         if(board[source.first-1][source.second] != nullptr)
          throw std::invalid_argument("there's already a soldier in the wanted position");
          
@@ -57,6 +62,8 @@ using namespace WarGame;
        
         case Right:
        {
+        if(source.second+1 > board.size()-1)
+         throw std::invalid_argument("out of bounds movement");
         if(board[source.first][source.second+1] != nullptr)
          throw std::invalid_argument("there's already a soldier in the wanted position");
          
@@ -69,6 +76,8 @@ using namespace WarGame;
        
        case Left:
        {
+        if(source.second-1 < 0)
+         throw std::invalid_argument("out of bounds movement");
         if(board[source.first][source.second-1] != nullptr)
          throw std::invalid_argument("there's already a soldier in the wanted position");
          
