@@ -106,7 +106,7 @@ class Soldier
     if(s->_health < 1)
      {
       delete s;
-      board[s->_x][s->_y]=nullptr;
+      //board[s->_x][s->_y]=nullptr;
       s = nullptr;
      }
     };
