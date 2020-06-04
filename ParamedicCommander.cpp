@@ -12,6 +12,10 @@ Soldier* ParamedicCommander::find_target(std::vector<std::vector<Soldier*>>& boa
     return find_close_ally(board,x,y);
 }
 
+/*
+new implemtation to main_action for commander soldier to trigger all non-commander soldiers from the same type. 
+same logic as in foot commander and sniper commander
+*/
 void ParamedicCommander::main_action(std::vector<std::vector<Soldier*>>& board,int x, int y)
 {
     basic_heal(board,x,y);
