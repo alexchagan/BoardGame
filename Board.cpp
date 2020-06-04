@@ -7,8 +7,8 @@ using namespace WarGame;
 
  Soldier*& Board::operator[](std::pair<int,int> location)
  {
-    board[location.first][location.second]->_x = location.first;
-    board[location.first][location.second]->_y = location.second;
+    //board[location.first][location.second]->_x = location.first;
+   // board[location.first][location.second]->_y = location.second;
     return board[location.first][location.second];
  }
  
