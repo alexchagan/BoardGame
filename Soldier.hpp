@@ -124,8 +124,6 @@ class Soldier
       delete s;
       board[s->_x][s->_y]=nullptr;
       s = nullptr;
-      if(s==nullptr)
-      cout<< "hi" << endl;
      }
     };
     
