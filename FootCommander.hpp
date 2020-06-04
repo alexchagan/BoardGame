@@ -6,6 +6,7 @@
 #include <stdexcept>
 #include <vector>
 #include "Soldier.hpp"
+#include "FootSoldier.hpp"
 using namespace std;
 
 class FootCommander : public Soldier
