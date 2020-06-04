@@ -17,7 +17,7 @@ same logic as in foot commander
 */
 void SniperCommander::main_action(std::vector<std::vector<Soldier*>>& board,int x, int y)
 {
-    basic_action(board,x,y);
+    basic_attack(board,x,y);
     
     for(int i = 0; i<board.size(); i++)
     {
