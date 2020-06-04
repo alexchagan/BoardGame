@@ -7,6 +7,8 @@ using namespace WarGame;
 
  Soldier*& Board::operator[](std::pair<int,int> location)
  {
+    board[location.first][location.second]->_x = location.first;
+    board[location.first][location.second]->_y = location.second;
     return board[location.first][location.second];
  }
  
@@ -85,16 +87,15 @@ using namespace WarGame;
      board[x][y]->main_action(board,x,y);
  }
  
- bool Board::has_soldiers(uint player_number)
+ bool Board::has_soldiers(uint player_number) const
  {
-  bool ans = false;
-   for(int i=0; i<board.size() && !ans ; i++)
+   for(int i=0; i<board.size(); i++)
    {
     for(int j=0; j<board[i].size(); j++)
     {
      if(board[i][j]!=nullptr && board[i][j]->_team == player_number)
-      ans = true;
+      return true;
     }
    }
-  return ans;
+  return false;
  }

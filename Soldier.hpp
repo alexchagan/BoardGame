@@ -12,6 +12,7 @@ using namespace std;
 class Soldier
 {
     public:
+    int _x,_y; // coordinates on board
     int _team, _health, _impact, _ohp; // ohp = original health points
     string _type;
    
@@ -44,7 +45,8 @@ class Soldier
         }
       }
     }
-     
+    //  if(s==nullptr)
+    //   cout<<"didn't find target"<<endl;
      return s;
     };
     
@@ -97,25 +99,26 @@ class Soldier
           return nullptr;
     };
     
-    void basic_action(std::vector<std::vector<Soldier*>> board,int x, int y)
+    void basic_action(std::vector<std::vector<Soldier*>>& board,int x, int y)
     {
     Soldier* s = find_target(board,x,y);
     s->_health = s->_health - _impact; //general formula for offensive soldiers
     if(s->_health < 1)
-    {
-    delete s;
-    s = nullptr;
-    }
+     {
+      delete s;
+      board[s->_x][s->_y]=nullptr;
+      s = nullptr;
+     }
     };
     
-    void basic_heal(std::vector<std::vector<Soldier*>> board,int x, int y)
+    void basic_heal(std::vector<std::vector<Soldier*>>& board,int x, int y)
 {
     Soldier* s = find_target(board,x,y);
     if(s != nullptr)
      s->_health = s->_ohp;
 }
     
-    virtual void main_action(std::vector<std::vector<Soldier*>> board,int x, int y)
+    virtual void main_action(std::vector<std::vector<Soldier*>>& board,int x, int y)
     {
     basic_action(board,x,y);
     };

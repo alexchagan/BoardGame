@@ -13,7 +13,7 @@ Soldier* SniperCommander::find_target(std::vector<std::vector<Soldier*>> board,i
     return find_healthy_target(board,x,y);
 }
 
-void SniperCommander::main_action(std::vector<std::vector<Soldier*>> board,int x, int y)
+void SniperCommander::main_action(std::vector<std::vector<Soldier*>>& board,int x, int y)
 {
     basic_action(board,x,y);
     

@@ -13,7 +13,7 @@ Soldier* FootCommander::find_target(std::vector<std::vector<Soldier*>> board,int
     return find_closest_target(board,x,y);
 }
 
-void FootCommander::main_action(std::vector<std::vector<Soldier*>> board,int x, int y)
+void FootCommander::main_action(std::vector<std::vector<Soldier*>>& board,int x, int y)
 {
     basic_action(board,x,y);
     

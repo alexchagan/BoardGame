@@ -14,7 +14,7 @@ Soldier* ParamedicCommander::find_target(std::vector<std::vector<Soldier*>> boar
     return find_close_ally(board,x,y);
 }
 
-void ParamedicCommander::main_action(std::vector<std::vector<Soldier*>> board,int x, int y)
+void ParamedicCommander::main_action(std::vector<std::vector<Soldier*>>& board,int x, int y)
 {
     basic_heal(board,x,y);
     
