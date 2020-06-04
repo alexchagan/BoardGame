@@ -14,7 +14,7 @@ class FootSoldier : public Soldier
  
   public:
   FootSoldier(int team): Soldier(team,100,10,"Foot Soldier",100){};
-  Soldier* find_target (std::vector<std::vector<Soldier*>> board,int x, int y);
+  Soldier* find_target (std::vector<std::vector<Soldier*>>& board,int x, int y);
 };
 
 #endif

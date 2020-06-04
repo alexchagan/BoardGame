@@ -1,6 +1,3 @@
-#ifndef WARGAME_A_SOLDIER_HPP
-#define WARGAME_A_SOLDIER_HPP
-
 #include <iostream>
 #include <string>
 #include <stdexcept>
@@ -20,7 +17,7 @@ class Soldier
     Soldier(int team,int health, int impact, string type, int ohp): _team(team), _health(health), _impact(impact), _type(type), _ohp(ohp){};
     
     
-    Soldier* find_closest_target(std::vector<std::vector<Soldier*>> board,int x, int y)
+    Soldier* find_closest_target(std::vector<std::vector<Soldier*>>& board,int x, int y)
     {
     double min_distance = 0;
     Soldier* s = nullptr;
@@ -56,7 +53,7 @@ class Soldier
     };
     
     
-    Soldier* find_healthy_target(std::vector<std::vector<Soldier*>> board,int x, int y)
+    Soldier* find_healthy_target(std::vector<std::vector<Soldier*>>& board,int x, int y)
     {
         int max_health = 0;
         Soldier* s = nullptr;
@@ -91,7 +88,7 @@ class Soldier
         
     };
     
-     Soldier* find_close_ally(std::vector<std::vector<Soldier*>> board,int x, int y)
+     Soldier* find_close_ally(std::vector<std::vector<Soldier*>>& board,int x, int y)
     {
          //Soldier* s = nullptr;
          
@@ -124,6 +121,8 @@ class Soldier
       delete s;
       board[s->_x][s->_y]=nullptr;
       s = nullptr;
+      if(s==nullptr)
+      cout<< "hi" << endl;
      }
     };
     
@@ -140,10 +139,8 @@ class Soldier
     };
     
     
-    virtual Soldier* find_target(std::vector<std::vector<Soldier*>> board,int x, int y) =0;
+    virtual Soldier* find_target(std::vector<std::vector<Soldier*>>& board,int x, int y) =0;
     
     virtual ~Soldier(){};
 };
 
-
-#endif

@@ -1,5 +1,3 @@
-#ifndef WARGAME_A_SOLDIER_CPP
-#define WARGAME_A_SOLDIER_CPP
 
 #include <iostream>
 #include <string>
@@ -12,4 +10,3 @@ using namespace std;
 
 
 
-#endif

@@ -1,5 +1,3 @@
-#ifndef WARGAME_A_SNIPERCOMMANDER_CPP
-#define WARGAME_A_SNIPERCOMMANDER_CPP
 
 #include <iostream>
 #include <string>
@@ -8,7 +6,7 @@
 #include "SniperCommander.hpp"
 using namespace std;
 
-Soldier* SniperCommander::find_target(std::vector<std::vector<Soldier*>> board,int x, int y)
+Soldier* SniperCommander::find_target(std::vector<std::vector<Soldier*>>& board,int x, int y)
 {
     return find_healthy_target(board,x,y);
 }
@@ -21,10 +19,10 @@ void SniperCommander::main_action(std::vector<std::vector<Soldier*>>& board,int 
     {
       for(int j=0; j<board[i].size(); j++)
       {
-          if(board[i][j]->_team == _team && board[i][j]->_type == "Sniper")
-           board[i][j]->basic_action(board,x,y);
+          if(board[i][j] != nullptr)
+           if(board[i][j]->_team == _team && board[i][j]->_type == "Sniper")
+            board[i][j]->basic_action(board,x,y);
       }
     }
 }
 
-#endif

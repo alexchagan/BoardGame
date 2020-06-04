@@ -1,5 +1,3 @@
-#ifndef WARGAME_A_PARAMEDICCOMMANDER_CPP
-#define WARGAME_A_PARAMEDICCOMMANDER_CPP
 
 #include <iostream>
 #include <string>
@@ -9,7 +7,7 @@
 using namespace std;
 
 
-Soldier* ParamedicCommander::find_target(std::vector<std::vector<Soldier*>> board,int x, int y)
+Soldier* ParamedicCommander::find_target(std::vector<std::vector<Soldier*>>& board,int x, int y)
 {
     return find_close_ally(board,x,y);
 }
@@ -22,10 +20,10 @@ void ParamedicCommander::main_action(std::vector<std::vector<Soldier*>>& board,i
     {
       for(int j=0; j<board[i].size(); j++)
       {
-          if(board[i][j]->_team == _team && board[i][j]->_type == "Paramedic")
-           board[i][j]->basic_heal(board,x,y);
+          if(board[i][j] != nullptr)
+           if(board[i][j]->_team == _team && board[i][j]->_type == "Paramedic")
+            board[i][j]->basic_heal(board,x,y);
       }
     }
 }
 
-#endif

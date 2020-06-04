@@ -1,5 +1,4 @@
-#ifndef WARGAME_A_SNIPER_HPP
-#define WARGAME_A_SNIPER_HPP
+
 
 #include <iostream>
 #include <string>
@@ -14,7 +13,6 @@ class Sniper : public Soldier
  
   public:
   Sniper(int team): Soldier(team,100,50,"Sniper",100){};
-  Soldier* find_target (std::vector<std::vector<Soldier*>> board,int x, int y);
+  Soldier* find_target (std::vector<std::vector<Soldier*>>& board,int x, int y);
 };
 
-#endif
