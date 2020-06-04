@@ -11,6 +11,10 @@ Soldier* SniperCommander::find_target(std::vector<std::vector<Soldier*>>& board,
     return find_healthy_target(board,x,y);
 }
 
+/*
+new implemtation to main_action for commander soldier to trigger all non-commander soldiers from the same type. 
+same logic as in foot commander
+*/
 void SniperCommander::main_action(std::vector<std::vector<Soldier*>>& board,int x, int y)
 {
     basic_action(board,x,y);
