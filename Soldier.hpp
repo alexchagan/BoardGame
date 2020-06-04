@@ -60,6 +60,7 @@ class Soldier
     {
         int max_health = 0;
         Soldier* s = nullptr;
+        int target_x,target_y;
     
     for(int i = 0; i<board.size(); i++)
     {
@@ -73,14 +74,20 @@ class Soldier
             {
                 max_health = health;
                 s = board[i][j];
+                target_x = i;
+                target_y = j;
             }
         }
     
       }
       
     }
-    
-      return s;  
+    if(s!=nullptr)
+     {
+      s->_x = target_x;
+      s->_y = target_y;
+     }
+     return s;  
         
     };
     
