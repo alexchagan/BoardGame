@@ -1,3 +1,6 @@
+#ifndef BOARD_CPP
+#define BOARD_CPP
+
 #include <string>
 #include <vector>
 #include <stdexcept>
@@ -108,3 +111,5 @@ using namespace WarGame;
    }
   return false;
  }
+
+ #endif

@@ -1,3 +1,5 @@
+#ifndef BOARD_HPP
+#define BOARD_HPP
 /**
  * Header file for the board of the war game.
  * 
@@ -54,3 +56,5 @@ class Board {
 };
 
 }
+
+#endif
